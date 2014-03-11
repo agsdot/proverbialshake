@@ -24,9 +24,11 @@ exports.index = function(req, res){
     filteredArray = _.without(verseArray, "");
     shuffledArray = _.shuffle(filteredArray);
 
-    res.render('index', { title: 'The Proverbial Shake', verses: shuffledArray, todaysDate: todaysDate });
-
+    res.render('index', {
+        title: 'The Proverbial Shake',
+        todaysDate: todaysDate,
+        verses: JSON.stringify(shuffledArray),
+    });
   });
-
 };
 

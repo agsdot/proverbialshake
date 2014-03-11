@@ -1,7 +1,12 @@
+var _ = require('')
 extends layout
 
 block content
   h1= title
   p Welcome to "#{title}"
   p The Proverbs #{todaysDate} verse for you today is:
-  p #{verses[0]}
+
+  - var verseArray = JSON.parse(verses)
+  - var verseInstance = JSON.parse(verses)[0]
+
+  p #{verseArray[0]}
