@@ -2,17 +2,18 @@ var _ = require('')
 extends layout
 
 block content
-  h1= title
-  p Welcome to "#{title}"
-  p The Proverbs #{todaysDate} verse for you today is:
+  div.row
+    div.col-lg-4.col-centered
+      h1= title
+      p.text-center The Proverbs #{todaysDate} verse for you today is:
 
-  #message
+      #message
 
-  p &nbsp;
-  p
-    button#previous.btn.btn-default.btn-lg Previous
+      p &nbsp;
+      div.text-center
 
-    button#next.btn.btn-default.btn-lg Next
+        button#previous.btn.btn-default.btn-lg Previous
+        button#next.btn.btn-default.btn-lg Next
 
 
 
