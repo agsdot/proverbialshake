@@ -18,32 +18,6 @@ block content
 
   script.
 
-    // inspiration : http://stackoverflow.com/questions/7843467/continuously-loop-through-javascript-text-array-onclick
-    /*
-      In the html
-      p#foo &nbsp;
-
-      button(onclick="document.getElementById('foo').innerHTML = previousWord();") Previous
-      button(onclick="document.getElementById('foo').innerHTML = nextWord();") Next
-
-
-    var nextWord = (function() {
-    var count = -1;
-    var wordArray = //['fe','fi','fo','fum'];
-                  !{verses}
-
-    return function() {
-      return wordArray[++count % wordArray.length];
-    }
-    }());
-
-
-    $(function() {
-        document.getElementById('foo').innerHTML = nextWord();
-    });
-    */
-
-
     // cleaner implementation thanks to
     // http://stackoverflow.com/questions/20360092/jquery-array-with-next-and-previous-buttons-to-scroll-through-entries
     $(function(){
