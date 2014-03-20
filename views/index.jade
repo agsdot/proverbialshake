@@ -6,7 +6,64 @@ block content
   p Welcome to "#{title}"
   p The Proverbs #{todaysDate} verse for you today is:
 
-  - var verseArray = JSON.parse(verses)
-  - var verseInstance = JSON.parse(verses)[0]
+  #message
 
-  p #{verseArray[0]}
+  p &nbsp;
+  p
+    button#previous.btn.btn-default.btn-lg Previous
+
+    button#next.btn.btn-default.btn-lg Next
+
+
+
+  script.
+
+    // inspiration : http://stackoverflow.com/questions/7843467/continuously-loop-through-javascript-text-array-onclick
+    /*
+      In the html
+      p#foo &nbsp;
+
+      button(onclick="document.getElementById('foo').innerHTML = previousWord();") Previous
+      button(onclick="document.getElementById('foo').innerHTML = nextWord();") Next
+
+
+    var nextWord = (function() {
+    var count = -1;
+    var wordArray = //['fe','fi','fo','fum'];
+                  !{verses}
+
+    return function() {
+      return wordArray[++count % wordArray.length];
+    }
+    }());
+
+
+    $(function() {
+        document.getElementById('foo').innerHTML = nextWord();
+    });
+    */
+
+
+    // cleaner implementation thanks to
+    // http://stackoverflow.com/questions/20360092/jquery-array-with-next-and-previous-buttons-to-scroll-through-entries
+    $(function(){
+      var messageIndex = 0;
+
+      var wordArray = !{verses}
+
+
+      $("#previous").on("click", function(e){
+          e.preventDefault();
+          // JavaScript modulo operator requires us to make a lengthy decrement call
+          messageIndex = (messageIndex + wordArray.length -1) % (wordArray.length);
+          $("#message").text(wordArray[messageIndex]);
+      });
+
+      $("#next").on("click", function(e){
+          e.preventDefault();
+          messageIndex = (messageIndex+1) % (wordArray.length);
+          $("#message").text(wordArray[messageIndex]);
+      });
+
+      $("#message").text(wordArray[0]);
+    });
