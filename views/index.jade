@@ -2,15 +2,15 @@ var _ = require('')
 extends layout
 
 block content
-  div.row
+  div.row.text-center
     div.col-lg-4.col-centered
       h1= title
-      p.text-center The Proverbs #{todaysDate} verse for you today is:
+      p The Proverbs #{todaysDate} verse for you today is:
 
       #message
 
       p &nbsp;
-      div.text-center
+      div
 
         button#previous.btn.btn-default.btn-lg Previous
         button#next.btn.btn-default.btn-lg Next
