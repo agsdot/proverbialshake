@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "3.4.8",
-    "jade": "*",
+    "pug": "*",
     "stylus": "*",
     "underscore": "~1.6.0",
     "logfmt": "~0.21.0",
